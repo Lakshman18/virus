@@ -1,341 +1,18 @@
 {% load static %}
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corona</title>
-	<link rel="icon" href="{% static 'image/virus-pngrepo-com.png' %}">
+    <title>COVID19 TRACKER</title>
+	<link rel="icon"  type="image/ico"  href="https://www.pngrepo.com/png/1064/180/virus.png" />
     <link rel="stylesheet" href="{% static 'css/style.css' %} " />
 	<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 	<script src="{% static 'js/x.js' %}"></script>
-
-    <style>
-        /* *********************************************************************************  Whole Page  *************************************************************************  */
-
-                                * {
-                                box-sizing: border-box;
-                                }
-
-                                body, html {
-                                height: 100%;
-                                margin: 0;
-                                }
-
-                                .bg {
-                                /* The image used */
-                                background-image: url("image/covidbg.png");
-                                background-position: center center;
-
-                                /* Full height */
-                                height: 100%; 
-
-                                /* Center and scale the image nicely */
-                                background-position: center;
-                                background-repeat: no-repeat;
-                                background-size: cover;
-                                background-attachment: fixed;
-                                }
-
-
-
-                                /* *********************************************************************************  logo    *************************************************************************  */
-                                .logo{
-                                    margin-top:50px;
-                                }
-
-                                .logo img{
-                                    
-                                    width: 400px; 
-                                    height: 200px;
-                                }
-
-                                /* *********************************************************************************  countries   *************************************************************************  */
-
-                                .country{
-                                    margin-top:10px;
-                                    margin-left:0%;
-                                    margin-right:2%;
-                                    
-                                }
-                                .select-css {
-                                    display: block;
-                                    font-size: 16px;
-                                    font-family: sans-serif;
-                                    font-weight: 700;
-                                    text-align: center;
-	                                text-align-last: center;
-                                    color: #444;
-                                    line-height: 1.3;
-                                    padding: .6em 1.4em .5em .8em;
-                                    width: 40%;
-                                    max-width: 100%;
-                                    box-sizing: border-box;
-                                    margin: 0;
-                                    border: 1px solid #aaa;
-                                    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-                                    border-radius: .5em;
-                                    -moz-appearance: none;
-                                    -webkit-appearance: none;
-                                    appearance: none;
-                                    background-color: #fff;
-                                    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-                                    linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
-                                    background-repeat: no-repeat, repeat;
-                                    background-position: right .7em top 50%, 0 0;
-                                    background-size: .65em auto, 100%;
-                                }
-                                .select-css::-ms-expand {
-                                    display: none;
-                                }
-                                .select-css:hover {
-                                    border-color: #888;
-                                }
-                                .select-css:focus {
-                                    border-color: #aaa;
-                                    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
-                                    box-shadow: 0 0 0 3px -moz-mac-focusring;
-                                    color: #222;
-                                    outline: none;
-                                }
-                                .select-css option {
-                                    font-weight:normal;
-                                }
-
-                                .center {
-                                display: block;
-                                margin-left: auto;
-                                margin-right: auto;
-                                width: 50%;
-                                }
-
-
-
-                                /* *********************************************************************************  Grid - 3 boxes    *************************************************************************  */
-                                .section1{
-                                    margin-right:25%;
-                                    margin-left:22%;
-                                    margin-top:5%;
-                                    margin-bottom:10%;
-                                    height:350px;
-                                }
-
-                                #grid {
-                                display: grid;
-                                height: 300px;
-                                grid-template-columns: 230px 230px 230px;
-
-                                grid-template-rows: 420px;
-                                column-gap: 20px;
-                                }
-
-                                #grid > div {
-                                border: 1px solid #909090;
-                                background-color: white;
-                                border-radius: 25px;
-                                }
-
-                                .box{
-                                    background-color:white;
-                                }
-
-                                .heading{
-                                    color: #808080;
-                                }
-
-                                .box-img{
-                                    width: 150px; 
-                                    height: 150px;
-                                }
-
-                                .count{
-                                    font-size: 35px; 
-                                }
-
-                                .date{
-                                    font-size: 20px ;
-                                    color: #808080;
-                                }
-
-                                .desc{
-                                    font-size: 15px;
-                                    
-                                }
-                                h1{
-                                margin:0px;
-                                    padding:10px;
-                                }
-
-
-
-                                /* *********************************************************************************  Chart    *************************************************************************  */
-
-                                .section2{
-                                    margin-right:15%;
-                                    margin-left:15%;
-                                    margin-top:15%;
-                                    margin-bottom:10%;
-                                    height:400px;
-                                    opacity: 0.9;
-                                }
-
-
-                                .section2 h6{
-                                    margin:0px;
-                                    padding:10px;
-                                    
-                                }
-                                .foo {
-                                float: left;
-                                width: 20px;
-                                height: 20px;
-                                margin: 5px;
-                                border: 1px solid rgba(0, 0, 0, .2);
-                                }
-
-                                .blue {
-                                background: #13b4ff;
-                                }
-
-                                .purple {
-                                background: #ab3fdd;
-                                }
-
-                                .wine {
-                                background: #ae163e;
-                                }
-                                .pie-details{
-
-                                    margin-right:60%;
-                                    margin-left:10%
-                                }
-
-                                #myChart {
-                                width: 100%;
-                                height: 100%;
-                                }
-                                
-                                #resizable {
-                                height: 400px;
-                                width: 100%;
-                                padding: 15px;
-                                }
-
-                                /* *********************************************************************************  Footer   *************************************************************************  */
-
-
-
-                                .footer {
-                                height: 40px;
-                                background-color: #1d3030;
-                                }
-                                .footer-div{
-
-                                    margin-top:3px;
-                                    font-size: 18px ; 
-                                    color:white;
-                                    
-                                }
-
-
-
-
-                                @media screen and (max-width: 500px) {
-                                    
-                                    body{
-                                        background-image: url(image/covidbg.pngsssss);
-                                    }
-                                /* start of phone styles */
-                                        .logo img{
-                                            width: 200px; 
-                                            height: 150px;
-                                        }
-                                        #grid {
-                                display: grid;
-                                height: 320px;
-                                grid-template-columns: repeat(1, 1fr);
-                                grid-template-rows: 350px;
-                                grid-row-gap: 20px;
-                                }
-                                .section1{
-                                    margin-right:15%;
-                                    margin-left:15%;
-                                    margin-top:5%;
-                                    margin-bottom:10%;
-                                    height:1000px;
-                                }
-                                .box-img{
-                                    width: 100px; 
-                                    height: 100px;
-                                }
-                                .section2{
-                                    margin-right:0%;
-                                    margin-left:0%;
-                                    margin-top:15%;
-                                    margin-bottom:10%;
-                                    height:500px;
-                                    opacity: 0.9;
-                                }
-                                #myChart {
-                                width: 100%;
-                                height: 100%;
-                                }
-                                
-                                #resizable {
-                                height: 400px;
-                                width: 100%;
-                                padding: 0px;
-                                }
-                                .footer {
-                                height: 40px;
-                                background-color: #1d3030;
-                                }
-                                .footer-div{
-
-                                    margin-top:3px;
-                                    font-size: 18px ; 
-                                    color:"white";
-                                    
-                                }
-
-
-
-                                }
-
-                                @media only screen and (max-width: 1024px) and (min-width: 800px){
-                                /* start of phone styles */
-                                        .section1{
-                                    margin-right:25%;
-                                    margin-left:15%;
-                                    margin-top:5%;
-                                    margin-bottom:10%;
-                                    height:350px;
-                                }
-
-                                #grid {
-                                display: grid;
-                                height: 300px;
-                                grid-template-columns: 230px 230px 230px;
-
-                                grid-template-rows: 420px;
-                                column-gap: 20px;
-                                }
-
-                                #grid > div {
-                                border: 1px solid #909090;
-                                background-color: white;
-                                border-radius: 25px;
-                                }
-
-
-
-
-                                }
-
-
-
-    </style>
 
 
 
@@ -343,31 +20,26 @@
 
 
 <body  class="bg" style="background-image: url('static/image/covidbg.png');">
-	
-	
+
+
 	<section class="logo">
-			<img src="{% static 'image/covid.png' %}" class="center"> 
+			<img src="{% static 'image/covid.png' %}" class="center">
 	</section>
-	
-    
+
+
 	<section class="country">
         <form action="" method="post" name="myform" id ="myform">
 					{% csrf_token %}
 				<select name="country" id="country" class=" center select-css " >
                 <option id="country_select_global"  value="global" >Global</option>
                 <option id="country_select_Afghanistan"  value="Afghanistan">Afghanistan</option>
-                <option id="country_select_Åland Islands" value="Åland Islands">Åland Islands</option>
-                <option id="country_select_" value="Albania">Albania</option>
-                <option id="country_select_Albania" value="Algeria">Algeria</option>
-                <option id="country_select_American Samoa" value="American Samoa">American Samoa</option>
+                <option id="country_select_Albania" value="Albania">Albania</option>
+                <option id="country_select_Algeria" value="Algeria">Algeria</option>
                 <option id="country_select_Andorra" value="Andorra">Andorra</option>
                 <option id="country_select_Angola" value="Angola">Angola</option>
-                <option id="country_select_Anguilla" value="Anguilla">Anguilla</option>
-                <option id="country_select_Antarctica" value="Antarctica">Antarctica</option>
                 <option id="country_select_Antigua and Barbuda" value="Antigua and Barbuda">Antigua and Barbuda</option>
                 <option id="country_select_Argentina" value="Argentina">Argentina</option>
                 <option id="country_select_Armenia" value="Armenia">Armenia</option>
-                <option id="country_select_Aruba" value="Aruba">Aruba</option>
                 <option id="country_select_Australia" value="Australia">Australia</option>
                 <option id="country_select_Austria" value="Austria">Austria</option>
                 <option id="country_select_Azerbaijan" value="Azerbaijan">Azerbaijan</option>
@@ -379,40 +51,28 @@
                 <option id="country_select_Belgium" value="Belgium">Belgium</option>
                 <option id="country_select_Belize" value="Belize">Belize</option>
                 <option id="country_select_Benin" value="Benin">Benin</option>
-                <option id="country_select_Bermuda" value="Bermuda">Bermuda</option>
                 <option id="country_select_Bhutan" value="Bhutan">Bhutan</option>
                 <option id="country_select_Bolivia" value="Bolivia">Bolivia</option>
                 <option id="country_select_Bosnia and Herzegovina" value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
                 <option id="country_select_Botswana" value="Botswana">Botswana</option>
-                <option id="country_select_Bouvet Island" value="Bouvet Island">Bouvet Island</option>
                 <option id="country_select_Brazil" value="Brazil">Brazil</option>
-                <option id="country_select_British Indian Ocean Territory" value="British Indian Ocean Territory">British Indian Ocean Territory</option>
-                <option id="country_select_Brunei Darussalam" value="Brunei Darussalam">Brunei Darussalam</option>
                 <option id="country_select_Bulgaria" value="Bulgaria">Bulgaria</option>
                 <option id="country_select_Burkina Faso" value="Burkina Faso">Burkina Faso</option>
                 <option id="country_select_Burundi" value="Burundi">Burundi</option>
                 <option id="country_select_Cambodia" value="Cambodia">Cambodia</option>
                 <option id="country_select_Cameroon" value="Cameroon">Cameroon</option>
                 <option id="country_select_Canada" value="Canada">Canada</option>
-                <option id="country_select_Cape Verde" value="Cape Verde">Cape Verde</option>
-                <option id="country_select_Cayman Islands" value="Cayman Islands">Cayman Islands</option>
-                <option id="country_select_Central African Republic"" value="Central African Republic">Central African Republic</option>
+                <option id="country_select_Central African Republic" value="Central African Republic">Central African Republic</option>
                 <option id="country_select_Chad" value="Chad">Chad</option>
                 <option id="country_select_Chile" value="Chile">Chile</option>
                 <option id="country_select_China" value="China">China</option>
-                <option id="country_select_Christmas Island" value="Christmas Island">Christmas Island</option>
-                <option id="country_select_Cocos (Keeling) Islands" value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
                 <option id="country_select_Colombia" value="Colombia">Colombia</option>
                 <option id="country_select_Comoros" value="Comoros">Comoros</option>
-                <option id="country_select_Congo" value="Congo">Congo</option>
-                <option id="country_select_Congo, The Democratic Republic of The" value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option>
-                <option id="country_select_Cook Islands" value="Cook Islands">Cook Islands</option>
                 <option id="country_select_Costa Rica" value="Costa Rica">Costa Rica</option>
                 <option id="country_select_Cote D'ivoire" value="Cote D'ivoire">Cote D'ivoire</option>
                 <option id="country_select_Croatia" value="Croatia">Croatia</option>
                 <option id="country_select_Cuba" value="Cuba">Cuba</option>
                 <option id="country_select_Cyprus" value="Cyprus">Cyprus</option>
-                <option id="country_select_Czech Republic" value="Czech Republic">Czech Republic</option>
                 <option id="country_select_Denmark" value="Denmark">Denmark</option>
                 <option id="country_select_Djibouti" value="Djibouti">Djibouti</option>
                 <option id="country_select_Dominica" value="Dominica">Dominica</option>
@@ -424,54 +84,36 @@
                 <option id="country_select_Eritrea" value="Eritrea">Eritrea</option>
                 <option id="country_select_Estonia" value="Estonia">Estonia</option>
                 <option id="country_select_Ethiopia" value="Ethiopia">Ethiopia</option>
-                <option id="country_select_Falkland Islands (Malvinas)" value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
-                <option id="country_select_Faroe Islands" value="Faroe Islands">Faroe Islands</option>
                 <option id="country_select_Fiji" value="Fiji">Fiji</option>
                 <option id="country_select_Finland" value="Finland">Finland</option>
                 <option id="country_select_France" value="France">France</option>
-                <option id="country_select_French Guiana" value="French Guiana">French Guiana</option>
-                <option id="country_select_French Polynesia" value="French Polynesia">French Polynesia</option>
-                <option id="country_select_French Southern Territories" value="French Southern Territories">French Southern Territories</option>
                 <option id="country_select_Gabon" value="Gabon">Gabon</option>
-                <option id="country_select_Gambia" value="Gambia">Gambia</option>
                 <option id="country_select_Georgia" value="Georgia">Georgia</option>
                 <option id="country_select_Germany" value="Germany">Germany</option>
                 <option id="country_select_Ghana" value="Ghana">Ghana</option>
-                <option id="country_select_Gibraltar" value="Gibraltar">Gibraltar</option>
                 <option id="country_select_Greece" value="Greece">Greece</option>
-                <option id="country_select_Greenland" value="Greenland">Greenland</option>
                 <option id="country_select_Grenada" value="Grenada">Grenada</option>
-                <option id="country_select_Guadeloupe" value="Guadeloupe">Guadeloupe</option>
-                <option id="country_select_Guam" value="Guam">Guam</option>
                 <option id="country_select_Guatemala" value="Guatemala">Guatemala</option>
-                <option id="country_select_Guernsey" value="Guernsey">Guernsey</option>
                 <option id="country_select_Guinea" value="Guinea">Guinea</option>
                 <option id="country_select_Guinea-bissau" value="Guinea-bissau">Guinea-bissau</option>
                 <option id="country_select_Guyana" value="Guyana">Guyana</option>
                 <option id="country_select_Haiti" value="Haiti">Haiti</option>
-                <option id="country_select_Heard Island and Mcdonald Islands" value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option>
-                <option id="country_select_Holy See (Vatican City State)">" value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
                 <option id="country_select_Honduras" value="Honduras">Honduras</option>
-                <option id="country_select_Hong Kong" value="Hong Kong">Hong Kong</option>
                 <option id="country_select_Hungary" value="Hungary">Hungary</option>
                 <option id="country_select_Iceland" value="Iceland">Iceland</option>
                 <option id="country_select_India" value="India">India</option>
                 <option id="country_select_Indonesia" value="Indonesia">Indonesia</option>
-                <option id="country_select_Iran, Islamic Republic of" value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
+                <option id="country_select_Iran" value="Iran">Iran</option>
                 <option id="country_select_Iraq" value="Iraq">Iraq</option>
                 <option id="country_select_Ireland" value="Ireland">Ireland</option>
-                <option id="country_select_Isle of Man" value="Isle of Man">Isle of Man</option>
                 <option id="country_select_Israel" value="Israel">Israel</option>
                 <option id="country_select_Italy" value="Italy">Italy</option>
                 <option id="country_select_Jamaica" value="Jamaica">Jamaica</option>
                 <option id="country_select_Japan" value="Japan">Japan</option>
-                <option id="country_select_Jersey" value="Jersey">Jersey</option>
                 <option id="country_select_Jordan" value="Jordan">Jordan</option>
                 <option id="country_select_Kazakhstan" value="Kazakhstan">Kazakhstan</option>
                 <option id="country_select_Kenya" value="Kenya">Kenya</option>
-                <option id="country_select_Kiribati" value="Kiribati">Kiribati</option>
                 <option id="country_select_Korea, Democratic People's Republic of" value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
-                <option id="country_select_Korea, Republic of" value="Korea, Republic of">Korea, Republic of</option>
                 <option id="country_select_Kuwait" value="Kuwait">Kuwait</option>
                 <option id="country_select_Kyrgyzstan" value="Kyrgyzstan">Kyrgyzstan</option>
                 <option id="country_select_Lao People's Democratic Republic" value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
@@ -479,71 +121,47 @@
                 <option id="country_select_Lebanon" value="Lebanon">Lebanon</option>
                 <option id="country_select_Lesotho" value="Lesotho">Lesotho</option>
                 <option id="country_select_Liberia" value="Liberia">Liberia</option>
-                <option id="country_select_Libyan Arab Jamahiriya" value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
                 <option id="country_select_Liechtenstein" value="Liechtenstein">Liechtenstein</option>
                 <option id="country_select_Lithuania" value="Lithuania">Lithuania</option>
                 <option id="country_select_Luxembourg" value="Luxembourg">Luxembourg</option>
-                <option id="country_select_Macao" value="Macao">Macao</option>
-                <option id="country_select_Macedonia, The Former Yugoslav Republic of" value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
                 <option id="country_select_Madagascar" value="Madagascar">Madagascar</option>
                 <option id="country_select_Malawi" value="Malawi">Malawi</option>
                 <option id="country_select_Malaysia" value="Malaysia">Malaysia</option>
                 <option id="country_select_Maldives" value="Maldives">Maldives</option>
                 <option id="country_select_Mali" value="Mali">Mali</option>
                 <option id="country_select_Malta" value="Malta">Malta</option>
-                <option id="country_select_Marshall Islands" value="Marshall Islands">Marshall Islands</option>
-                <option id="country_select_Martinique" value="Martinique">Martinique</option>
                 <option id="country_select_Mauritania" value="Mauritania">Mauritania</option>
                 <option id="country_select_Mauritius" value="Mauritius">Mauritius</option>
-                <option id="country_select_Mayotte" value="Mayotte">Mayotte</option>
                 <option id="country_select_Mexico" value="Mexico">Mexico</option>
-                <option id="country_select_Micronesia, Federated States of" value="Micronesia, Federated States of">Micronesia, Federated States of</option>
-                <option id="country_select_Moldova, Republic of" value="Moldova, Republic of">Moldova, Republic of</option>
                 <option id="country_select_Monaco" value="Monaco">Monaco</option>
                 <option id="country_select_Mongolia" value="Mongolia">Mongolia</option>
                 <option id="country_select_Montenegro" value="Montenegro">Montenegro</option>
-                <option id="country_select_Montserrat" value="Montserrat">Montserrat</option>
                 <option id="country_select_Morocco" value="Morocco">Morocco</option>
                 <option id="country_select_Mozambique" value="Mozambique">Mozambique</option>
-                <option id="country_select_Myanmar" value="Myanmar">Myanmar</option>
                 <option id="country_select_Namibia" value="Namibia">Namibia</option>
-                <option id="country_select_Nauru" value="Nauru">Nauru</option>
                 <option id="country_select_Nepal" value="Nepal">Nepal</option>
                 <option id="country_select_Netherlands" value="Netherlands">Netherlands</option>
-                <option id="country_select_Netherlands Antilles" value="Netherlands Antilles">Netherlands Antilles</option>
                 <option id="country_select_New Caledonia" value="New Caledonia">New Caledonia</option>
                 <option id="country_select_New Zealand" value="New Zealand">New Zealand</option>
                 <option id="country_select_Nicaragua" value="Nicaragua">Nicaragua</option>
                 <option id="country_select_Niger" value="Niger">Niger</option>
                 <option id="country_select_Nigeria" value="Nigeria">Nigeria</option>
-                <option id="country_select_Niue" value="Niue">Niue</option>
-                <option id="country_select_Norfolk Island" value="Norfolk Island">Norfolk Island</option>
-                <option id="country_select_Northern Mariana Islands" value="Northern Mariana Islands">Northern Mariana Islands</option>
                 <option id="country_select_Norway" value="Norway">Norway</option>
                 <option id="country_select_Oman" value="Oman">Oman</option>
                 <option id="country_select_Pakistan" value="Pakistan">Pakistan</option>
-                <option id="country_select_Palau" value="Palau">Palau</option>
-                <option id="country_select_Palestinian Territory, Occupied" value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
                 <option id="country_select_Panama" value="Panama">Panama</option>
                 <option id="country_select_Papua New Guinea" value="Papua New Guinea">Papua New Guinea</option>
                 <option id="country_select_Paraguay" value="Paraguay">Paraguay</option>
                 <option id="country_select_Peru" value="Peru">Peru</option>
                 <option id="country_select_Philippines" value="Philippines">Philippines</option>
-                <option id="country_select_Pitcairn" value="Pitcairn">Pitcairn</option>
                 <option id="country_select_Poland" value="Poland">Poland</option>
                 <option id="country_select_Portugal" value="Portugal">Portugal</option>
-                <option id="country_select_Puerto Rico" value="Puerto Rico">Puerto Rico</option>
                 <option id="country_select_Qatar" value="Qatar">Qatar</option>
-                <option id="country_select_Reunion" value="Reunion">Reunion</option>
                 <option id="country_select_Romania" value="Romania">Romania</option>
-                <option id="country_select_Russian Federation" value="Russian Federation">Russian Federation</option>
                 <option id="country_select_Rwanda" value="Rwanda">Rwanda</option>
-                <option id="country_select_Saint Helena" value="Saint Helena">Saint Helena</option>
                 <option id="country_select_Saint Kitts and Nevis" value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
                 <option id="country_select_Saint Lucia" value="Saint Lucia">Saint Lucia</option>
-                <option id="country_select_Saint Pierre and Miquelon" value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
                 <option id="country_select_Saint Vincent and The Grenadines" value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option>
-                <option id="country_select_Samoa" value="Samoa">Samoa</option>
                 <option id="country_select_San Marino" value="San Marino">San Marino</option>
                 <option id="country_select_Sao Tome and Principe" value="Sao Tome and Principe">Sao Tome and Principe</option>
                 <option id="country_select_Saudi Arabia" value="Saudi Arabia">Saudi Arabia</option>
@@ -554,47 +172,30 @@
                 <option id="country_select_Singapore" value="Singapore">Singapore</option>
                 <option id="country_select_Slovakia" value="Slovakia">Slovakia</option>
                 <option id="country_select_Slovenia" value="Slovenia">Slovenia</option>
-                <option id="country_select_Solomon Islands" value="Solomon Islands">Solomon Islands</option>
                 <option id="country_select_Somalia" value="Somalia">Somalia</option>
-                <option id="country_select_outh Africa" value="South Africa">South Africa</option>
-                <option id="country_select_South Georgia and The South Sandwich Islands" value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
+                <option id="country_select_South Africa" value="South Africa">South Africa</option>
                 <option id="country_select_Spain" value="Spain">Spain</option>
                 <option id="country_select_Sri Lanka" value="Sri Lanka">Sri Lanka</option>
                 <option id="country_select_Sudan" value="Sudan">Sudan</option>
                 <option id="country_select_Suriname" value="Suriname">Suriname</option>
-                <option id="country_select_Svalbard and Jan Mayen" value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
-                <option id="country_select_Swaziland" value="Swaziland">Swaziland</option>
                 <option id="country_select_Sweden" value="Sweden">Sweden</option>
                 <option id="country_select_Switzerland" value="Switzerland">Switzerland</option>
-                <option id="country_select_" value="Syrian Arab Republic">Syrian Arab Republic</option>
-                <option id="country_select_Taiwan, Province of China" value="Taiwan, Province of China">Taiwan, Province of China</option>
                 <option id="country_select_Tajikistan" value="Tajikistan">Tajikistan</option>
-                <option id="country_select_Tanzania, United Republic of" value="Tanzania, United Republic of">Tanzania, United Republic of</option>
                 <option id="country_select_Thailand" value="Thailand">Thailand</option>
                 <option id="country_select_Timor-leste" value="Timor-leste">Timor-leste</option>
                 <option id="country_select_Togo" value="Togo">Togo</option>
-                <option id="country_select_Tokelau" value="Tokelau">Tokelau</option>
-                <option id="country_select_Tonga" value="Tonga">Tonga</option>
                 <option id="country_select_Trinidad and Tobago" value="Trinidad and Tobago">Trinidad and Tobago</option>
                 <option id="country_select_Tunisia" value="Tunisia">Tunisia</option>
                 <option id="country_select_Turkey" value="Turkey">Turkey</option>
-                <option id="country_select_Turkmenistan" value="Turkmenistan">Turkmenistan</option>
-                <option id="country_select_Turks and Caicos Islands" value="Turks and Caicos Islands">Turks and Caicos Islands</option>
-                <option id="country_select_Tuvalu" value="Tuvalu">Tuvalu</option>
                 <option id="country_select_Uganda" value="Uganda">Uganda</option>
                 <option id="country_select_Ukraine" value="Ukraine">Ukraine</option>
                 <option id="country_select_United Arab Emirates" value="United Arab Emirates">United Arab Emirates</option>
                 <option id="country_select_United Kingdom" value="United Kingdom">United Kingdom</option>
-                <option id="country_select_United States" value="United States">United States</option>
-                <option id="country_select_United States Minor Outlying Islands" value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                <option id="country_select_USA" value="USA">USA</option>
                 <option id="country_select_Uruguay" value="Uruguay">Uruguay</option>
                 <option id="country_select_Uzbekistan" value="Uzbekistan">Uzbekistan</option>
-                <option id="country_select_Vanuatu" value="Vanuatu">Vanuatu</option>
                 <option id="country_select_Venezuela" value="Venezuela">Venezuela</option>
-                <option id="country_select_Viet Nam" value="Viet Nam">Viet Nam</option>
-                <option id="country_select_Virgin Islands, British" value="Virgin Islands, British">Virgin Islands, British</option>
-                <option id="country_select_Virgin Islands, U.S." value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
-                <option id="country_select_Wallis and Futuna" value="Wallis and Futuna">Wallis and Futuna</option>
+                <option id="country_select_Vietnam" value="Vietnam">Vietnam</option>
                 <option id="country_select_Western Sahara" value="Western Sahara">Western Sahara</option>
                 <option id="country_select_Yemen" value="Yemen">Yemen</option>
                 <option id="country_select_Zambia" value="Zambia">Zambia</option>
@@ -602,42 +203,16 @@
 
 </select> </form>
 
-         <script type="text/javascript">
-                        function submitform()
-                        {
-                        document.myform.submit();
-                        }
-                </script>
 
-        
+
+
     </section>
-<script type="text/javascript"> 
-    document.getElementById('country').onchange = function() {
-        localStorage.setItem('selecteditem', document.getElementById('country').value);
-        submitform();
-    };
 
-    if (localStorage.getItem('selecteditem')) {
-        document.getElementById('country_select_'+localStorage.getItem('selecteditem')).selected = true;
-        localStorage.clear();
-    } 
-	
-	</script>
-    <script>
-            if ( window.history.replaceState ) {
-            window.history.replaceState( null, null, window.location.href );
-            }
-    </script>
-    
 
-    
-        
-    </section>
-    
- 		
+
 	<section class="section1">
 		<div id="grid">
- 
+
 			<div class="box">
 					<center><h3 class="heading">Infected </h3></center>
 					<img src="{% static 'image/infected.png' %}"   class="center box-img"/>
@@ -645,8 +220,8 @@
 					<center><h1 class="date" >{{country_stats.update}} </h1></center>
 					<center><h1 class="desc" >Number of active cases of COVID19 </h1></center>
 			</div>
-  
-  
+
+
 			<div class="box">
 					<center><h3 class="heading">Recovered</h3></center>
 					<img src="{% static 'image/recovered.png' %}"  class="center box-img"/>
@@ -654,8 +229,8 @@
 					<center><h1 class="date"  >{{country_stats.update}} </h1></center>
 					<center><h1 class="desc" >Number of recovories from COVID19 </h1></center>
 			</div>
-  
-  
+
+
 			<div class="box">
 					<center><h3 class="heading">Deaths</h3></center>
 					<img src="{% static 'image/death.jpg' %}"  class="center box-img"/>
@@ -672,123 +247,16 @@
 		<p class="foo purple"></p><h6>Recovered</h6>
 		<p class="foo wine"></p><h6>Deaths</h6>
 		</div>
-	
-		
+
+
 		<div id="resizable">
 				<div id='myChart'><script src="{% static 'js/x.js' %}"></script> </div>
 		</div>
-		
-        <script>
- var x = "{{country_stats.confirmed|safe}}";
-var y ="{{country_stats.recovered|safe}}";
-var z ="{{country_stats.deaths|safe}}";
 
-var myConfig = {
-  "type": "pie",
-  "labels": [{
-      "text": "How to prevent coronavirus disease infection?",
-      "font-family": "Arial",
-      "font-size": "15",
-      "x": "60%",
-      "y": "20%",
-	  
-	  "mediaRules": [
- 	  {//changes layout at 800 pixels or less
- 	    "maxWidth": 800,
- 	    "x": '15%',
- 	    "y": '65%',
- 	     "font-size": "12",
- 	    
- 	  }]
-    },
-	
-    {
-      "text": "STAY HOME.SAVE LIVES.",
-      "font-color": "red",
-      "font-family": "Georgia",
-      "font-size": "30",
-      "x": "60%",
-      "y": "26%",
-	  
-	   "mediaRules": [
- 	  {//changes layout at 800 pixels or less
- 	    "maxWidth": 800,
- 	    "x": '15%',
- 	    "y": '71%',
- 	    "font-size": "20",
- 	    
- 	  }]
-    },
-    {
-      "text": "(Click the above link.)",
-      "font-family": "Georgia",
-      "font-size": "10",
-      "x": "60%",
-      "y": "41%",
-	  
-	  "mediaRules": [
- 	  {//changes layout at 800 pixels or less
- 	    "maxWidth": 800,
- 	    "x": '15%',
- 	    "y": '78%',
- 	    "font-size": "8",
- 	    
- 	  }]
-    }
- 	 
-  ],
-  "plot": {
-    "value-box": {
-      "placement": "out",
-      "offset-r": "-10",
-      "font-family": "Georgia",
-      "font-size": 12,
-      "font-weight": "normal"
-	  
-    }
-  },
-  "plotarea": {
-    "margin-right": "45%",
-    "margin-top": "0%",
-    "margin-bottom": "20%",
-	
-	 "mediaRules": [
- 	  {//changes layout at 800 pixels or less
-	  "maxWidth": 800,
- 	    "margin-right": "15%",
-		"margin-left": "15%",
-    "margin-top": "0%",
-    "margin-bottom": "30%",
- 	    
- 	  }]
-  },
-  
-  
-  "series": [{
-      "values": [parseInt(x)]
-    },
-    {
-      "values": [parseInt(y)]
-    },
-    {
-      "values": [parseInt(z)]
-    }
-  ]
-};
-
-zingchart.render({
-  id: 'myChart',
-  data: myConfig,
-  height: 400,
-  width: "100%"
-});
-$(function() {
-  $("#resizable").resizable();
-});
-
-        </script>
-		
 	</section>
+
+
+
 
 
 
@@ -796,6 +264,156 @@ $(function() {
 			 <div class="footer-div"><center><h3 > &copy; Designed by LUCKY</h3></center></div>
 	</footer>
 
-    
+
+
+	<!-- ***********************************************************javascript *************************************** **********************************-->
+
+	 <script type="text/javascript">
+                        function submitform()
+                        {
+                        document.myform.submit();
+                        }
+                </script>
+
+                <script type="text/javascript">
+    document.getElementById('country').onchange = function() {
+        localStorage.setItem('selecteditem', document.getElementById('country').value);
+        submitform();
+    };
+
+    if (localStorage.getItem('selecteditem')) {
+        document.getElementById('country_select_'+localStorage.getItem('selecteditem')).selected = true;
+        localStorage.clear();
+    }
+
+	</script>
+
+    <script>
+            if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+            }
+    </script>
+
+     <script>
+                    var x = "{{country_stats.confirmed|safe}}";
+                            x = x.split(',').join('');
+                    var y ="{{country_stats.recovered|safe}}";
+                            y = y.split(',').join('');
+                    var z ="{{country_stats.deaths|safe}}";
+                            z = z.split(',').join('');
+
+                    var myConfig = {
+                      "type": "pie",
+
+
+
+                      "labels": [{
+                          "text": "How to prevent coronavirus disease infection?",
+                          "font-family": "Arial",
+                          "font-size": "15",
+                          "x": "60%",
+                          "y": "20%",
+
+                    	  "mediaRules": [
+                     	  {//changes layout at 800 pixels or less
+                     	    "maxWidth": 800,
+                     	    "x": '15%',
+                     	    "y": '65%',
+                     	     "font-size": "12",
+
+                     	  }]
+                        },
+
+                        {
+                          "text": "STAY HOME.SAVE LIVES.",
+                          "font-color": "red",
+                          "font-family": "Georgia",
+                          "font-size": "30",
+                          "x": "60%",
+                          "y": "26%",
+
+                    	   "mediaRules": [
+                     	  {//changes layout at 800 pixels or less
+                     	    "maxWidth": 800,
+                     	    "x": '15%',
+                     	    "y": '71%',
+                     	    "font-size": "20",
+
+                     	  }]
+                        },
+                        {
+                          "text": "(Click the above link.)",
+                          "font-family": "Georgia",
+                          "font-size": "10",
+                          "x": "60%",
+                          "y": "41%",
+
+                    	  "mediaRules": [
+                     	  {//changes layout at 800 pixels or less
+                     	    "maxWidth": 800,
+                     	    "x": '15%',
+                     	    "y": '78%',
+                     	    "font-size": "8",
+
+                     	  }]
+                        }
+
+                      ],
+                      "plot": {
+                        "value-box": {
+                          "placement": "out",
+                          "offset-r": "-10",
+                          "font-family": "Georgia",
+                          "font-size": 12,
+                          "font-weight": "normal"
+
+                        }
+                      },
+                      "plotarea": {
+                        "margin-right": "45%",
+                        "margin-top": "0%",
+                        "margin-bottom": "20%",
+
+                    	 "mediaRules": [
+                     	  {//changes layout at 800 pixels or less
+                    	  "maxWidth": 800,
+                     	    "margin-right": "15%",
+                    		"margin-left": "15%",
+                        "margin-top": "0%",
+                        "margin-bottom": "30%",
+
+                     	  }]
+                      },
+
+
+                      "series": [{
+                          "values": [parseInt(x)]
+                        },
+                        {
+                          "values": [parseInt(y)]
+                        },
+                        {
+                          "values": [parseInt(z)]
+                        }
+                      ]
+                    };
+
+
+                    zingchart.render({
+                      id: 'myChart',
+                      data: myConfig,
+                      height: 400,
+                      width: "100%"
+                    });
+                    $(function() {
+                      $("#resizable").resizable();
+                    });
+
+
+        </script>
+
+
+
+
 </body>
 </html>
